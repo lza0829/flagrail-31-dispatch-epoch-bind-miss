@@ -1,0 +1,388 @@
+:root {
+  --纸: #e6edf4;
+  --纸深: #d5e0ea;
+  --墨: #0b2740;
+  --淡: #4a6278;
+  --线: #9bb0c4;
+  --线弱: rgba(11, 39, 64, 0.12);
+  --信: #0f8f86;
+  --信亮: #14b8a6;
+  --信底: rgba(15, 143, 134, 0.12);
+  --警: #c45c2a;
+  --警底: rgba(196, 92, 42, 0.12);
+  --通: #1f7a4c;
+  --通底: rgba(31, 122, 76, 0.12);
+  --败: #b33a3a;
+  --败底: rgba(179, 58, 58, 0.12);
+  --块: rgba(255, 255, 255, 0.72);
+  --侧: #0b2740;
+  --侧字: #c9d7e6;
+  --侧淡: #7f97ad;
+  --侧亮: #14b8a6;
+  font-family: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box }
+html, body, #root { min-height: 100% }
+body {
+  margin: 0;
+  color: var(--墨);
+  background-color: var(--纸);
+  background-image:
+    linear-gradient(90deg, rgba(11, 39, 64, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(11, 39, 64, 0.04) 1px, transparent 1px),
+    radial-gradient(900px 520px at 85% -10%, rgba(20, 184, 166, 0.18), transparent 55%),
+    radial-gradient(700px 480px at -5% 110%, rgba(11, 39, 64, 0.1), transparent 50%);
+  background-size: 28px 28px, 28px 28px, auto, auto;
+}
+
+.壳 {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+.侧轨 {
+  background: linear-gradient(180deg, #0b2740 0%, #123552 55%, #0e2f45 100%);
+  color: var(--侧字);
+  padding: 1.4rem 1rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 3px solid var(--侧亮);
+}
+.侧标 {
+  padding: 0 0.35rem;
+}
+.侧英 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: var(--侧亮);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.侧名 {
+  font-family: Syne, "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1.85rem;
+  letter-spacing: 0.18em;
+  color: #f3f8fc;
+  line-height: 1.1;
+  animation: brand-in 0.7s ease-out both;
+}
+.侧骨 {
+  margin-top: 0.55rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--侧淡);
+}
+.侧导 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  overflow: auto;
+  padding-right: 0.15rem;
+}
+.侧导 a {
+  position: relative;
+  color: var(--侧淡);
+  text-decoration: none;
+  padding: 0.55rem 0.7rem 0.55rem 1.05rem;
+  font-size: 0.88rem;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.侧导 a::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: transparent;
+  transform: translateY(-50%) rotate(45deg);
+}
+.侧导 a:hover { color: #e8f1f8; background: rgba(255,255,255,0.04) }
+.侧导 a.亮 {
+  color: #fff;
+  border-left-color: var(--侧亮);
+  background: rgba(20, 184, 166, 0.12);
+}
+.侧导 a.亮::before {
+  background: var(--侧亮);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+  animation: tick-pulse 1.6s ease-in-out infinite;
+}
+.侧导 a.次链 { font-size: 0.78rem; opacity: 0.85; margin-top: 0.6rem }
+.侧脚 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--侧淡);
+  letter-spacing: 0.08em;
+  padding: 0 0.35rem;
+}
+
+.主壳 { min-width: 0; display: flex; flex-direction: column }
+.主 {
+  padding: 1.6rem 1.8rem 2.4rem;
+  max-width: 1080px;
+  width: 100%;
+}
+
+.题 {
+  font-family: Syne, "IBM Plex Sans", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.04em;
+}
+.述 {
+  color: var(--淡);
+  margin: 0 0 1.15rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+
+.英雄 {
+  min-height: calc(100vh - 3.2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 0.5rem 0 2rem;
+}
+.英雄英 {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--信);
+  text-transform: uppercase;
+}
+.英雄名 {
+  font-family: Syne, "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 4.4rem);
+  letter-spacing: 0.22em;
+  line-height: 1;
+  margin: 0;
+  color: var(--墨);
+  animation: brand-in 0.75s ease-out both;
+}
+.英雄骨 {
+  font-size: 1.02rem;
+  color: var(--淡);
+  max-width: 34rem;
+  line-height: 1.55;
+  margin: 0;
+  border-left: 3px solid var(--信);
+  padding-left: 0.9rem;
+}
+.轨刻 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--淡);
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--线弱);
+  border-bottom: 1px solid var(--线弱);
+}
+.轨刻 b {
+  color: var(--墨);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.25rem;
+}
+.轨刻 i {
+  font-style: normal;
+  color: var(--信);
+  margin-right: 0.15rem;
+}
+
+.行 { display: flex; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.95rem; align-items: center }
+button {
+  background: var(--墨);
+  color: #f4f9fc;
+  border: 0;
+  padding: 0.55rem 1.05rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: transform 0.12s ease, background 0.12s;
+}
+button:hover { background: #143b5c }
+button:active { transform: translateY(1px) }
+button.次 {
+  background: transparent;
+  border: 1px solid var(--线);
+  color: var(--墨);
+  font-weight: 500;
+}
+button.次:hover { border-color: var(--墨); background: rgba(255,255,255,0.5) }
+button.信 {
+  background: var(--信);
+  color: #f4fffc;
+}
+button.信:hover { background: #0c7a73 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--块);
+  border: 1px solid var(--线弱);
+  backdrop-filter: blur(4px);
+}
+th, td {
+  border-bottom: 1px solid var(--线弱);
+  padding: 0.55rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  color: var(--淡);
+  font-weight: 500;
+  background: rgba(11, 39, 64, 0.04);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+td code, .mono {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+}
+.讯 {
+  margin: 0.5rem 0;
+  color: var(--淡);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+}
+.空态 {
+  padding: 1.5rem;
+  border: 1px dashed var(--线);
+  color: var(--淡);
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+  background: rgba(255,255,255,0.45);
+}
+.提示条 {
+  background: var(--信底);
+  border-left: 3px solid var(--信);
+  color: var(--墨);
+  padding: 0.75rem 0.95rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+.提示条 a { color: var(--信); font-weight: 600 }
+.徽章 {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  font-family: "IBM Plex Mono", monospace;
+}
+.徽章.通 { background: var(--通底); color: var(--通) }
+.徽章.败 { background: var(--败底); color: var(--败) }
+.徽章.信 { background: var(--信底); color: var(--信) }
+.徽章.警 { background: var(--警底); color: var(--警) }
+
+.table-wrap { overflow-x: auto; margin: 0.4rem 0 1rem; }
+.table-wrap table { min-width: 760px; }
+.dim, .淡 { color: var(--淡); font-size: 0.82rem; }
+.成 { color: var(--通) !important; }
+.败文 { color: var(--败) !important; }
+.通文 { color: var(--通); }
+.linklike {
+  background: none; color: var(--信); padding: 0; font: inherit;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.linklike:hover { background: none; color: #0c7a73; }
+button.mini { padding: 0.28rem 0.55rem; font-size: 0.76rem; margin: 0.1rem 0.25rem 0.1rem 0; }
+.actions { white-space: nowrap; min-width: 150px; }
+.note { max-width: 320px; color: var(--淡); font-size: 0.78rem; line-height: 1.45; }
+
+.panel, .面板 {
+  background: var(--块);
+  border: 1px solid var(--线弱);
+  border-left: 3px solid var(--信);
+  padding: 1rem 1.1rem;
+  margin: 1rem 0 1.2rem;
+  backdrop-filter: blur(4px);
+}
+.面板.bad { border-left-color: var(--败); }
+.面板.ok { border-left-color: var(--通); }
+.面板头 {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem;
+}
+.面板头 h2 { font-size: 1rem; margin: 0; letter-spacing: 0.04em; }
+.mini-text { font-size: 0.8rem; margin-bottom: 0; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+}
+.字段 { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.字段.inline { max-width: 260px; }
+.字段.grow2 { grid-column: span 2; }
+.字段 span { color: var(--淡); font-size: 0.78rem; }
+.字段 input, .字段 select, .字段 textarea {
+  width: 100%; border: 1px solid var(--线); background: rgba(255,255,255,0.72);
+  color: var(--墨); padding: 0.52rem 0.62rem; border-radius: 2px; font: inherit;
+}
+.字段 textarea { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; resize: vertical; }
+.字段 input:focus, .字段 select:focus, .字段 textarea:focus {
+  outline: 2px solid rgba(20,184,166,0.25); border-color: var(--信);
+}
+.checkline { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--淡); font-size: 0.86rem; }
+.checkline input { accent-color: var(--信); }
+.钉预览 {
+  display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;
+  padding: 0.65rem 0.75rem; margin: 0.25rem 0 0.8rem;
+  background: rgba(15,143,134,0.08); border: 1px dashed rgba(15,143,134,0.35);
+  font-size: 0.84rem;
+}
+.钉预览 code { overflow-wrap: anywhere; }
+.kv { display: flex; flex-direction: column; gap: 0.45rem; font-size: 0.88rem; }
+.kv code { overflow-wrap: anywhere; }
+.epoch { font-variant-numeric: tabular-nums; }
+.纪元差 { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; white-space: nowrap; }
+.stale-row { background: var(--警底); }
+.选中行 { background: var(--信底); }
+
+@keyframes brand-in {
+  from { opacity: 0; letter-spacing: 0.4em; transform: translateY(8px) }
+  to { opacity: 1; letter-spacing: 0.22em; transform: translateY(0) }
+}
+@keyframes tick-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15) }
+  50% { box-shadow: 0 0 0 5px rgba(20, 184, 166, 0.28) }
+}
+
+@media (max-width: 860px) {
+  .壳 { grid-template-columns: 1fr }
+  .侧轨 {
+    position: relative;
+    height: auto;
+    border-right: 0;
+    border-bottom: 3px solid var(--侧亮);
+  }
+  .侧导 { flex-direction: row; flex-wrap: wrap; gap: 0.2rem }
+  .侧导 a { border-left: 0; border-bottom: 2px solid transparent; padding-left: 0.7rem }
+  .侧导 a.亮 { border-bottom-color: var(--侧亮) }
+  .侧导 a::before { display: none }
+  .英雄 { min-height: auto; padding-top: 0.4rem }
+  .英雄名 { letter-spacing: 0.12em }
+  .form-grid { grid-template-columns: 1fr }
+  .字段.grow2 { grid-column: span 1 }
+}

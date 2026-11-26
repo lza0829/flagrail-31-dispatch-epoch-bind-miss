@@ -1,0 +1,14 @@
+{
+  "类型": "分桶",
+  "分桶": [
+    {
+      "桶键": "checkout.new_tax-gray10",
+      "开关键": "checkout.new_tax",
+      "桶类型": "百分比",
+      "规则": {
+        "percent": 10,
+        "salt": "tax-v3"
+      }
+    }
+  ]
+}

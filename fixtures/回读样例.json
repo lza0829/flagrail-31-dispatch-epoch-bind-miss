@@ -1,0 +1,18 @@
+{
+  "类型": "回读",
+  "批次编号": "回读-demo",
+  "回读": [
+    {
+      "票号": "票-checkout.new_tax@3-gray10",
+      "边缘键": "edge-a",
+      "所见版本键": "checkout.new_tax@3",
+      "结果": "确认"
+    },
+    {
+      "票号": "票-checkout.new_tax@3-gray10",
+      "边缘键": "edge-b",
+      "所见版本键": "checkout.new_tax@3",
+      "结果": "确认"
+    }
+  ]
+}

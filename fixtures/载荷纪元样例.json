@@ -1,0 +1,16 @@
+{
+  "类型": "载荷纪元场景",
+  "批次编号": "载荷纪元-demo",
+  "版本键": "epoch.demo@1",
+  "开关键": "epoch.demo",
+  "桶键": "epoch.demo-gray10",
+  "票号": "票-epoch-demo-1-gray10",
+  "旧载荷": {
+    "limit": 10,
+    "mode": "old"
+  },
+  "新载荷": {
+    "limit": 20,
+    "mode": "new"
+  }
+}

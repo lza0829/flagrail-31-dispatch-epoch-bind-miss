@@ -1,0 +1,12 @@
+{
+  "类型": "下发",
+  "批次编号": "下发-demo",
+  "下发": [
+    {
+      "票号": "票-checkout.new_tax@3-gray10",
+      "版本键": "checkout.new_tax@3",
+      "桶键": "checkout.new_tax-gray10",
+      "说明": "10% 灰度下发"
+    }
+  ]
+}
